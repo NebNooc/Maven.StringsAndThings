@@ -26,13 +26,6 @@ public class StringsAndThings {
 
         }
         return counter;
-
-        /*Integer lastCharPosition = input.length() - 1;
-        String lastChar = String.valueOf(input.charAt(lastCharPosition));
-
-        if (lastChar != "z" || lastChar == "y") {
-            return input;
-        }*/
     }
 
     /**
@@ -45,7 +38,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String result = base.replace(remove, "");
+        return result;
     }
 
     /**
@@ -57,7 +51,21 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        String is = "is";
+        Integer counterIs = 0;
+        String not = "not";
+        Integer counterNot = 0;
+
+        while (input.contains(is)) {
+            input = input.replaceFirst(is, "-");
+            counterIs++;
+        }
+
+        while (input.contains(not)) {
+            input = input.replaceFirst(not, "-");
+            counterNot++;
+        }
+        return counterIs == counterNot;
     }
 
     /**
@@ -68,7 +76,24 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        String gg = "gg";
+        String g = "g";
+        Integer counter = 0;
+        Boolean result;
+
+        while (input.contains(gg)) {
+            input = input.replaceFirst(gg, "-");
+        }
+        while (input.contains(g)) {
+            input = input.replaceFirst(g, "-");
+            counter++;
+        }
+        if (counter != 0) {
+            result = false;
+        } else {
+            result = true;
+        }
+        return result;
     }
 
 
