@@ -77,11 +77,15 @@ public class StringsAndThings {
      */
     public Boolean gIsHappy(String input){
         String gg = "gg";
+        String xg = "-g";
         String g = "g";
         Integer counter = 0;
         Boolean result;
 
         while (input.contains(gg)) {
+            input = input.replaceFirst(gg, "-");
+        }
+        while (input.contains(xg)) {
             input = input.replaceFirst(gg, "-");
         }
         while (input.contains(g)) {
@@ -104,7 +108,19 @@ public class StringsAndThings {
      *            countTriple("xxxabyyyycd") // Should return 3
      *            countTriple("a") // Should return 0
      */
-    public Integer countTriple(String input){
-        return null;
+    public Integer countTriple(String input) {
+        int counter = 0;
+
+        for (int i = 0; i < input.length() - 2; i++){
+
+            char amount = input.charAt(i);
+
+            if (amount == input.charAt(i + 1) && amount == input.charAt(i + 2)) {
+                counter++;
+            }
+
+        }
+
+        return counter;
     }
 }
